@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Home",
+        "link": "url",
+        "icon": "icon",
+        "class": "aClass",
+        "onclick": ""
+    },
+    {
+        "name": "rejecteds",
+        "link": "url",
+        "icon": "icon",
+        "class": "aClass",
+        "onclick": ""
+    }
+]
