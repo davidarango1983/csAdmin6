@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Cons} from "../providers/cons";
+import { Cons } from '../constants/cons';
+import { Observable } from 'rxjs';
+import { isNullOrUndefined } from 'util';
+
 
 @Component({
   selector: 'app-header',
@@ -9,23 +12,44 @@ import {Cons} from "../providers/cons";
 })
 export class HeaderComponent implements OnInit {
 
-  menu = '../assets/menu/menu.json';
-  results={};
+  cons = new Cons();
+  routes: RoutesMenu[];
 
-  constructor(private http: HttpClient, private cons: Cons) {
+  constructor(private http: HttpClient) {
 
   }
 
   ngOnInit() {
-    this.loadMenu();
+    this.loadMenu().subscribe(result => {
+      if (!isNullOrUndefined(result)) {
+
+        this.routes = result;
+      }
+    }, error => {
+      console.log(<any>error);
+    }
+  );
+  console.log('Cargando Menu.. finalizado');
   }
 
 
-  loadMenu(){
+  loadMenu(): Observable<any> {
 
-    this.http.get(this.menu).subscribe(data => {
-      this.results = data;
-    });
-    }
+    console.log('Cargando Resumen');
+    return this.http.get(this.cons.staticRoutes.menu);
+  }
+  
 
 }
+
+export class RoutesMenu {
+
+  name: string;
+  link: string;
+  icon: string;
+  class: string;
+  onclick: string;
+
+}
+
+
