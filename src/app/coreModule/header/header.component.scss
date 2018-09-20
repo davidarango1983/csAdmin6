@@ -1,0 +1,9 @@
+
+@import "../../../styles/variables";
+
+.headerItems{
+    &:hover{
+        transition: all .1s ease-in-out;
+        transform: scale(1.2);
+      }
+}

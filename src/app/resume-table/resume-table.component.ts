@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 
@@ -18,12 +19,10 @@ export interface PeriodicElement {
 export class ResumeTableComponent implements OnInit {
 
 
-
-  constructor() { }
-
-
-
+  constructor(private spinner: NgxSpinnerService) { }
+ 
   ngOnInit() {
-
-  }
+    
+  
+}
 }

@@ -39,7 +39,7 @@
   }
 }
 
-.fa {
+.fa {  
   &.fa-download {
     margin: 4px;
     cursor: pointer;
@@ -61,7 +61,15 @@
   &.fa-arrow-down, &.fa-arrow-up, &.fa-file-excel-o {
     margin: 4px;
     cursor: pointer;
+    &:hover {
+      opacity: 10;
+    }
   }
+  &:hover{
+    transition: all .1s ease-in-out;
+    transform: scale(1.5)
+  }
+  
 }
 
 label {
@@ -105,5 +113,15 @@ input[type="checkbox"] {
     /*for fade in effect*/
   }
 }
+.progress-bar-custom{
+    margin: 2px 
+  }
+
+  
+  
+  
+
+  
+  
 
 /*when the user checks the checkbox the checked icon will animate in*/

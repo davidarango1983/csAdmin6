@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cons } from '../constants/cons';
+import { Cons } from '../../constants/cons';
 import { Observable } from 'rxjs';
 import { isNullOrUndefined } from 'util';
+import { AuthService } from '../../auth/auth.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit {
   cons = new Cons();
   routes: RoutesMenu[];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authService: AuthService) {
 
   }
 
@@ -38,7 +39,7 @@ export class HeaderComponent implements OnInit {
     console.log('Cargando Resumen');
     return this.http.get(this.cons.staticRoutes.menu);
   }
-  
+
 
 }
 
