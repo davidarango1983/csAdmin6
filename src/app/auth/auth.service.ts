@@ -42,7 +42,7 @@ export class AuthService {
           if (!isNullOrUndefined(result)) {
             sessionStorage.setItem("token", result.access_token);
             this.token = result.access_token;
-          this.router.navigate(['/home']);
+          this.router.navigate(['/csAdmin/resume']);
           
           
           

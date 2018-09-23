@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms'
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 /***************************** 
@@ -43,6 +45,7 @@ import { AuthGuard } from './auth/auth-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HttpCustomClient } from './services/httpCustom.service';
 import { Cons } from './constants/cons';
+import { HomeComponent } from './coreModule/home/home.component';
 
 
 
@@ -55,6 +58,7 @@ import { Cons } from './constants/cons';
     ErrorsComponent,
     ResumeTableComponent,
     SigninComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -64,10 +68,26 @@ import { Cons } from './constants/cons';
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+   
 
   ],
+  exports:[TranslateModule],
   providers: [AuthService, AuthGuard,HttpCustomClient, Cons],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  
+ }
+
+ export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

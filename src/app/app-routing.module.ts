@@ -6,15 +6,19 @@ import {ResumeTableComponent} from "./resume-table/resume-table.component";
 import {ErrorPageComponent} from "./error-page/error-page.component";
 import { SigninComponent } from './auth/signin/signin.component';
 import { AuthGuard } from './auth/auth-guard.service';
+import { HomeComponent } from './coreModule/home/home.component';
 
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: SigninComponent },
-  { path: 'home', component: ResumeTableComponent},
-  { path: 'errors', component: ErrorsComponent, canActivate: [AuthGuard] },
-  { path: 'rejecteds', component: RejectedsComponent, canActivate: [AuthGuard] },
+  { path: 'csAdmin', component: HomeComponent, children : [
+    { path: 'resume', component: ResumeTableComponent},
+    { path: 'errors', component: ErrorsComponent, canActivate: [AuthGuard] },
+    { path: 'rejecteds', component: RejectedsComponent, canActivate: [AuthGuard] },
 
+  ]},
+  
   // { path: 'not-found', component: PageNotFoundComponent },
   { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
   { path: '**', redirectTo: '/not-found' }

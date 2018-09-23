@@ -1,8 +1,8 @@
 <ng-template [ngIf]="authService.isAuthenticated()">
-  <div  class="container-fluid">
+  <div  class="container-fluid header-app">
 
 
-    <nav class="navbar navbar-expand-lg navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-expand-lg navbar-dark bg-primary havasDegradation">
       <a class="navbar-brand" href="#" [innerText]="cons.appName"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,10 +10,20 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li *ngFor="let menu of routes" class="nav-item active">
-            <a class="headerItems nav-link " routerLink="{{menu.link}}">{{menu.name}}</a>
+            <a class="headerItems nav-link " routerLink="{{menu.link}}">{{menu.name | translate}}</a>
           </li>
          
         </ul>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-havas dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span ngClass="flag-icon flag-icon-{{appComponent.getLang()}}"></span>
+        </button>
+        <div class="dropdown-menu languageSelect">
+          <button class="dropdown-item"  (click)="appComponent.switchLanguage('gb')" >EN <span class="flag-icon flag-icon-gb"></span></button>
+          <button class="dropdown-item"  (click)="appComponent.switchLanguage('es')" >ES <span class="flag-icon flag-icon-es"></span></button>
+          <button class="dropdown-item"  (click)="appComponent.switchLanguage('fr')" >FR <span class="flag-icon flag-icon-fr"></span></button>
+          
+        </div>
       </div>
     </nav>
     </div>

@@ -4,6 +4,9 @@ import { Cons } from '../../constants/cons';
 import { Observable } from 'rxjs';
 import { isNullOrUndefined } from 'util';
 import { AuthService } from '../../auth/auth.service';
+import { AppComponent } from '../../app.component';
+
+
 
 
 @Component({
@@ -16,7 +19,7 @@ export class HeaderComponent implements OnInit {
   cons = new Cons();
   routes: RoutesMenu[];
 
-  constructor(private http: HttpClient, private authService: AuthService) {
+  constructor(private http: HttpClient, private authService: AuthService, private appComponent: AppComponent) {
 
   }
 

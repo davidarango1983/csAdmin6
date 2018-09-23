@@ -1,3 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import "variables";
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+
+
+.havasDegradation{
+    background-image: linear-gradient(to right, $redHavas 36%, #FFFFFF 100%);
+}
+
+.btn-havas{
+    color: $redHavas;
+    background-color: #bf003200;
+    border-color: $redHavas;
+}
