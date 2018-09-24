@@ -8,7 +8,7 @@
   <div class="row">
 
       <div class="col-md-8">
-       <table class="table table-responsive-sm table-striped">
+       <table class="table table-sm table-responsive-sm  table-striped">
           <thead>
               <tr>
                 <th>ClientSpace</th>
@@ -20,58 +20,13 @@
        
          
         <tbody>
-          <tr class="justify-content-center">
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-            <td>Cell 1</td>
+          <tr *ngFor="let item of resume" class="justify-content-center">
+            <td>{{item.name}}</td>
+            <td>{{item.reject}}</td>
+            <td>{{item.error}}</td>
+            <td>{{item.pending}}</td>
           </tr>
-          <tr class="justify-content-center">
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-          </tr>
-          <tr class="justify-content-center">
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-          </tr>
-          <tr class="justify-content-center">
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-          </tr>
-          <tr class="justify-content-center">
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-          </tr>
-          <tr class="justify-content-center">
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-            <td>Cell 1</td>
-          </tr>
-          <tr class="justify-content-center">
-              <td>Cell 1</td>
-              <td>Cell 1</td>
-              <td>Cell 1</td>
-              <td>Cell 1</td>
-              </tr><tr class="justify-content-center">
-                  <td>Cell 1</td>
-                  <td>Cell 1</td>
-                  <td>Cell 1</td>
-                  <td>Cell 1</td>
-                  </tr><tr class="justify-content-center">
-                      <td>Cell 1</td>
-                      <td>Cell 1</td>
-                      <td>Cell 1</td>
-                      <td>Cell 1</td>
-                      </tr>
+         
         </tbody>
       </table>
     

@@ -46,6 +46,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { HttpCustomClient } from './services/httpCustom.service';
 import { Cons } from './constants/cons';
 import { HomeComponent } from './coreModule/home/home.component';
+import { Url } from './constants/url';
 
 
 
@@ -80,7 +81,7 @@ import { HomeComponent } from './coreModule/home/home.component';
 
   ],
   exports:[TranslateModule],
-  providers: [AuthService, AuthGuard,HttpCustomClient, Cons],
+  providers: [AuthService, AuthGuard,HttpCustomClient, Cons, Url],
   bootstrap: [AppComponent]
 })
 export class AppModule {

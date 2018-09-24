@@ -1,19 +1,18 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Cons } from '../constants/cons';
 
 @Injectable()
 export class HttpCustomClient {
+   
 
   constructor(private http: HttpClient) {}
 
-   private createAuthorizationHeaderLogin(httpHeaders: HttpHeaders) {
-    httpHeaders.set('Authorization', 'Basic Y2xpZW50MTpjbGllbnQx'); 
-   }
-
-   createAuthorizationHeader(headers: HttpHeaders) {
-     headers.set('Authorization', 'Basic Y2xpZW50MTpjbGllbnQx'); 
-   }
+  private createHeaders() : HttpHeaders{
+    let headers = new HttpHeaders().append('Authorization', 'Bearer ' + Cons.getToken());      
+    return headers;
+  }
 
   /*
   *
@@ -21,13 +20,7 @@ export class HttpCustomClient {
   *  
   */
    get(url) : Observable<any> {
-     let httpHeaders = new HttpHeaders();
-     this.createAuthorizationHeader(httpHeaders);
-     let options = {
-       headers: httpHeaders
-     };
-     options.headers=httpHeaders; 
-     return this.http.get(url,options);
+     return this.http.get(url,{"headers": this.createHeaders()});
    }
 
 
@@ -37,16 +30,9 @@ export class HttpCustomClient {
   *  
   */
    post(url, data) : Observable<any> {
-     let httpHeaders = new HttpHeaders();
-     this.createAuthorizationHeader(httpHeaders);
-     let options = {
-       headers:{}
-     };
-     options.headers=httpHeaders;
-     let body;
-
-     return this.http.post(url,body,options);
+     return this.http.post(url,data,{"headers": this.createHeaders()});
    }
+   
 
 
   /*

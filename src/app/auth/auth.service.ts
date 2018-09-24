@@ -25,7 +25,7 @@ export class AuthService {
 
 
 
-  constructor(private router: Router, private httpCustom: HttpCustomClient /*headers: HttpHeaders*/, conf: Cons) { }
+  constructor(private router: Router, private httpCustom: HttpCustomClient) { }
 
   signupUser(email: string, password: string) {
 
@@ -41,8 +41,9 @@ export class AuthService {
         .subscribe(result => {
           if (!isNullOrUndefined(result)) {
             sessionStorage.setItem("token", result.access_token);
+            Cons.token=result.access_token;
             this.token = result.access_token;
-          this.router.navigate(['/csAdmin/resume']);
+            this.router.navigate(['/csAdmin/resume']);
           
           
           
@@ -59,13 +60,14 @@ export class AuthService {
 
   }
 
-  getToken() {
-
-  }
 
   isAuthenticated() {
     this.token = sessionStorage.getItem("token");
     return this.token != null;
+  }
+
+  getToken(){
+    return this.token;
   }
 
  

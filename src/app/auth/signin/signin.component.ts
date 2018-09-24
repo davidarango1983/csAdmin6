@@ -10,6 +10,8 @@ import { AuthService } from '../auth.service';
 })
 export class SigninComponent implements OnInit {
 
+  resume: Resume[];
+
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
@@ -20,5 +22,15 @@ export class SigninComponent implements OnInit {
     const password = form.value.password;
     this.authService.signinUser(email, password);
   }
+
+}
+
+export interface Resume {
+
+  name: string;
+  link: string;
+  icon: string;
+  class: string;
+  onclick: string;
 
 }

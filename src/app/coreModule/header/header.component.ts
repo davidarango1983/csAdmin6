@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
 
 }
 
-export class RoutesMenu {
+export interface RoutesMenu {
 
   name: string;
   link: string;

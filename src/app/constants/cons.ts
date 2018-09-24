@@ -3,6 +3,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class Cons {
   appName: string = 'CsAdmin';
+  static token : string;
+
+static getToken(){
+return sessionStorage.getItem("token");
+}
 
 
  oauthConfiguration= {
