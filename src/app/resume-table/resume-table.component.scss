@@ -126,11 +126,9 @@ input[type="checkbox"] {
   transform: scale(1.1);
   color: $redHavas
  }
-  
-  
-  
 
-  
-  
-
-/*when the user checks the checkbox the checked icon will animate in*/
+ .resumeTable span:hover {
+  cursor: pointer;
+  color: $redHavas;
+  font-weight: bold;
+ }

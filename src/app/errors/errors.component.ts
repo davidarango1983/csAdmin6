@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Filters } from '../services/filters';
 
 @Component({
   selector: 'app-errors',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private filters: Filters) { }
 
   ngOnInit() {
+    console.log(this.filters)
   }
 
 }

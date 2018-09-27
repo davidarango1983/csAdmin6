@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cons } from '../../constants/cons';
 import { Observable } from 'rxjs';
 import { isNullOrUndefined } from 'util';
 import { AuthService } from '../../auth/auth.service';
 import { AppComponent } from '../../app.component';
+import { Cons } from '../../services/constants/cons';
 
 
 

@@ -1,10 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { HttpCustomClient } from '../services/httpCustom.service';
-import { Url } from '../constants/url';
 import { isNullOrUndefined } from 'util';
 import { of, Observable, interval, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators'
+import { Url } from 'src/app/services/constants/url';
+import { Filters } from '../services/filters';
+import { Router } from '@angular/router';
+
 
 
 
@@ -14,21 +17,38 @@ import { map } from 'rxjs/operators'
   styleUrls: ['./resume-table.component.scss'],
  })
 export class ResumeTableComponent implements OnInit {
+ 
 
-
-  constructor(private spinner: NgxSpinnerService, private http: HttpCustomClient,private url: Url) { }
+  constructor(private spinner: NgxSpinnerService, private http: HttpCustomClient,private urls: Url, public filters : Filters, public router: Router) { }
   resume: Resume[];
   state = 'normal';
   total: Subscription;
   conteo = 0;
   finished: boolean = false;
+  totals ={
+    "errors" : 0, 
+    "rejects" : 0,
+    "pending" : 0
 
+  }
   ngOnInit() {
 
-    this.http.get(this.url.toBackend.resume).subscribe(result=>{
+    this.http.get(this.urls.toBackend.resume).subscribe(result=>{
       if (!isNullOrUndefined(result)) {
 
         this.resume = result;
+        
+        this.resume.forEach(element => {
+          
+          this.totals ={
+            "errors" : this.totals.errors + element.error, 
+            "rejects" : this.totals.rejects + element.reject,
+            "pending" : this.totals.pending + element.pending
+  
+          }
+          
+        });
+        
       }
 
     },error=>{
@@ -65,6 +85,15 @@ this.total = myNumbers.subscribe(
 
 }
 
+setFilter(filter){
+  this.filters[filter.route]={
+    "name":filter.name,
+    "value":filter.value
+   };
+   this.router.navigate(['/csAdmin/'+filter.route]);
+
+}
+
 
  
 
@@ -80,3 +109,5 @@ export interface Resume {
   reject: number;
 
 }
+
+

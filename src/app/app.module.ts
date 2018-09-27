@@ -44,9 +44,10 @@ import { AuthGuard } from './auth/auth-guard.service';
 ******************************/
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HttpCustomClient } from './services/httpCustom.service';
-import { Cons } from './constants/cons';
+
 import { HomeComponent } from './coreModule/home/home.component';
-import { Url } from './constants/url';
+import { Cons } from './services/constants/cons';
+import { Url } from './services/constants/url';
 
 
 

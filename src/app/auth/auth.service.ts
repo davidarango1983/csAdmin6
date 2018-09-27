@@ -1,31 +1,35 @@
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Cons } from '../constants/cons';
+
 import { Observable } from 'rxjs';
 import { HttpCustomClient } from '../services/httpCustom.service'
 import { isNullOrUndefined } from 'util';
+import { Cons } from '../services/constants/cons';
 
 @Injectable()
 export class AuthService {
   token: string;
+  private conf: Cons;
 
-   conf = new Cons();
+     
 
-     httpOptions = {
+
+
+
+
+
+
+  constructor(private router: Router, private httpCustom: HttpCustomClient, private constants : Cons) { 
+    this.conf= constants;
+
+    let httpOptions = {
       headers: new HttpHeaders({
         "Authorization": 'Basic Y2xpZW50MTpjbGllbnQx'
       }),
       data: this.conf.oauthConfiguration
     };
-
-
-
-
-
-
-
-  constructor(private router: Router, private httpCustom: HttpCustomClient) { }
+  }
 
   signupUser(email: string, password: string) {
 

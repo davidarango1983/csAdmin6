@@ -5,5 +5,8 @@
     "APP.LANGUAGE" : "Language",
     "APP.HOME" : "Home", 
     "APP.REJECTEDS" : "Rejecteds",
-    "APP.ERRORS" : "Errors"
+    "APP.ERRORS" : "Errors",
+    "APP.CLIENTSPACE": "client space",
+    "APP.REJECT": "Rejects",
+    "APP.PENDING": "Pending"
 }

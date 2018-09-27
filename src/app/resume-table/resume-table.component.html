@@ -7,26 +7,34 @@
   <div class="row">
    
       <div class="col-md-8">
-       <table class="table table-sm table-responsive-sm  table-striped">
+       <table class="table table-sm table-responsive-sm  table-striped  resumeTable">
           <thead>
               <tr>
-                <th>ClientSpace</th>
-                <th>Reject</th>
-                <th>Error</th>
-                <th>Pending</th>
+                <th>{{'APP.CLIENTSPACE' | translate  | titlecase }}</th>
+                <th>{{'APP.REJECT' | translate}}</th>
+                <th>{{'APP.ERRORS' | translate}}</th>
+                <th>{{'APP.PENDING' | translate}}</th>
               </tr>
             </thead>
        
          
         <tbody>
-          <tr *ngFor="let item of resume" class="justify-content-center">
+          <tr *ngFor="let item of resume" class="justify-content-center" >
             <td>{{item.name}}</td>
-            <td>{{item.reject}}</td>
-            <td>{{item.error}}</td>
-            <td>{{item.pending}}</td>
+            <td (click)="setFilter({'name':'id', 'value':item.idCS,'route':'rejecteds'})"><span>{{item.reject}}</span></td>
+            <td (click)="setFilter({'name':'id', 'value':item.idCS,'route':'errors'})"><span>{{item.error}}</span></td>
+            <td (click)="setFilter({'name':'id', 'value':item.idCS,'route':'errors'})"><span>{{item.pending}}</span></td>
           </tr>
          
         </tbody>
+        <thead>
+            <tr>
+              <th>{{'APP.TOTAL' | translate}}</th>
+              <th>{{totals.rejects}}</th>
+              <th>{{totals.errors}}</th>
+              <th>{{totals.pending}}</th>
+            </tr>
+          </thead>
       </table>
     
 
