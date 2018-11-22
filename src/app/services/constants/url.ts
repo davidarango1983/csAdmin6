@@ -11,7 +11,10 @@ export class Url {
  }
 
  toBackend = {
-    "resume" : this.staticRoutes.apiEndPoint + "/resume"
+    "resume" : this.staticRoutes.apiEndPoint + "/resume",
+    "masterIds" : this.staticRoutes.apiEndPoint + "/master/cs",
+    "masterUsers" : this.staticRoutes.apiEndPoint + "/master/user",
+    "masterExtension" : this.staticRoutes.apiEndPoint + "/master/extension"
 
  }
 

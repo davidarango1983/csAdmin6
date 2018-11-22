@@ -12,7 +12,17 @@
           <li *ngFor="let menu of routes" class="nav-item active">
             <a class="headerItems nav-link " routerLink="{{menu.link}}">{{menu.name | translate}}</a>
           </li>
-         
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span ngClass="flag-icon flag-icon-{{appComponent.getLang()}}"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" (click)="appComponent.switchLanguage('gb')" >EN <span class="flag-icon flag-icon-gb"></span></a>
+              <a class="dropdown-item" (click)="appComponent.switchLanguage('es')" >ES <span class="flag-icon flag-icon-es"></span></a>
+              <a class="dropdown-item" (click)="appComponent.switchLanguage('fr')" >FR <span class="flag-icon flag-icon-fr"></span></a>
+            </div>
+          </li>
+
         </ul>
       </div>
       <div class="btn-group">
@@ -22,11 +32,11 @@
           <button class="dropdown-item"  (click)="appComponent.switchLanguage('gb')" >EN <span class="flag-icon flag-icon-gb"></span></button>
           <button class="dropdown-item"  (click)="appComponent.switchLanguage('es')" >ES <span class="flag-icon flag-icon-es"></span></button>
           <button class="dropdown-item"  (click)="appComponent.switchLanguage('fr')" >FR <span class="flag-icon flag-icon-fr"></span></button>
-          
+
         </div>
       </div>
     </nav>
     </div>
-      
+
 </ng-template>
 

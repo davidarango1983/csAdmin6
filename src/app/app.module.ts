@@ -5,15 +5,16 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SelectDropDownModule } from 'ngx-select-dropdown'
 
 
-/***************************** 
+/*****************************
 *****Bootstrap Component******
 ******************************/
 import { AppComponent } from './app.component';
 
 
-/***************************** 
+/*****************************
 *******App Components*********
 ******************************/
 import { RejectedsComponent } from './rejecteds/rejecteds.component';
@@ -21,17 +22,17 @@ import { ErrorsComponent } from './errors/errors.component';
 import {ResumeTableComponent} from "./resume-table/resume-table.component";
 import { CoreModule } from './coreModule/core.module';
 
-/***************************** 
+/*****************************
 ********Routing Module *******
 ******************************/
 import { AppRoutingModule } from './app-routing.module';
 
-/***************************** 
+/*****************************
 ************ Spinner *********
 ******************************/
 import { NgxSpinnerModule } from 'ngx-spinner';
 
-/***************************** 
+/*****************************
 ***** Login & Secutiry ******
 ******************************/
 import { SigninComponent } from './auth/signin/signin.component';
@@ -39,7 +40,7 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 
 
-/***************************** 
+/*****************************
 ********* Error Page *********
 ******************************/
 import { ErrorPageComponent } from './error-page/error-page.component';
@@ -71,14 +72,15 @@ import { Url } from './services/constants/url';
     AppRoutingModule,
     CoreModule,
     NgxSpinnerModule,
+    SelectDropDownModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
-      }
+      }a
     }),
-   
+
 
   ],
   exports:[TranslateModule],
@@ -87,7 +89,7 @@ import { Url } from './services/constants/url';
 })
 export class AppModule {
 
-  
+
  }
 
  export function HttpLoaderFactory(http: HttpClient) {
